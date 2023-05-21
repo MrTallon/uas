@@ -1,6 +1,6 @@
 version: '3.1'
 services:
-  db:
+  mysql:
     image: mysql:8.0.20
     restart: always
     container_name: mysql
@@ -16,3 +16,9 @@ services:
       - 3306:3306
     volumes:
       - ./data:/var/lib/mysql
+  redis:
+    image: redis
+    restart: always
+    container_name: redis
+    ports:
+      - 6379:6379

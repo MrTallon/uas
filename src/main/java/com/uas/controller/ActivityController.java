@@ -67,8 +67,7 @@ public class ActivityController {
     @NoArgsConstructor
     @AllArgsConstructor
     static class UpsertReq {
-
-
+        private String activityName;
     }
 
     @Data
