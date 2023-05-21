@@ -1,7 +1,7 @@
 package com.uas.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author tallon
- * @since 2023-05-20
+ * @since 2023-05-21
  */
-@Controller
-@RequestMapping("/uas/userCoin")
+@RestController
+@RequestMapping("/user_coin")
 public class UserCoinController {
 
 }

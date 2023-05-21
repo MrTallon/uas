@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 活动规则定义 服务实现类
+ * 活动 服务实现类
  * </p>
  *
  * @author tallon
- * @since 2023-05-19
+ * @since 2023-05-21
  */
 @Service
 public class ActivityServiceImpl extends ServiceImpl<ActivityMapper, Activity> implements IActivityService {

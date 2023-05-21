@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author tallon
- * @since 2023-05-20
+ * @since 2023-05-21
  */
 @Service
 public class UserCoinServiceImpl extends ServiceImpl<UserCoinMapper, UserCoin> implements IUserCoinService {

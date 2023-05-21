@@ -1,10 +1,14 @@
 package com.uas.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -12,12 +16,13 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author tallon
- * @since 2023-05-20
+ * @since 2023-05-21
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @TableName("user_coin")
-public class UserCoin implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class UserCoin {
 
     /**
      * 主键
@@ -28,113 +33,42 @@ public class UserCoin implements Serializable {
     /**
      * 用户id
      */
+    @TableField("user_id")
     private String userId;
 
     /**
      * 使用场景
      */
+    @TableField("scene_code")
     private String sceneCode;
 
     /**
      * 数量
      */
+    @TableField("amount")
     private Integer amount;
 
     /**
      * 奖励发放状态。PROGRESSING=发放中,DONE=发放成功，FAIL=发放失败
      */
+    @TableField("status")
     private String status;
 
     /**
      * 扩展字段
      */
+    @TableField("ext")
     private String ext;
 
     /**
      * 创建时间
      */
+    @TableField(value = "created_at", fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
     /**
      * 更新时间
      */
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getSceneCode() {
-        return sceneCode;
-    }
-
-    public void setSceneCode(String sceneCode) {
-        this.sceneCode = sceneCode;
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getExt() {
-        return ext;
-    }
-
-    public void setExt(String ext) {
-        this.ext = ext;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "UserCoin{" +
-        "id = " + id +
-        ", userId = " + userId +
-        ", sceneCode = " + sceneCode +
-        ", amount = " + amount +
-        ", status = " + status +
-        ", ext = " + ext +
-        ", createdAt = " + createdAt +
-        ", updatedAt = " + updatedAt +
-        "}";
-    }
 }

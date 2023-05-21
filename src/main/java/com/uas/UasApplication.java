@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.uas.mapper")
-//@EnableSwagger2
 public class UasApplication {
 
     public static void main(String[] args) {

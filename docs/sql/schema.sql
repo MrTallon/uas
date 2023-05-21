@@ -1,6 +1,7 @@
 create table activity
 (
     id               int unsigned auto_increment comment '主键' primary key,
+    name             varchar(128) not null comment '活动名称',
     key_code         varchar(128) not null comment '活动编码',
     start_time       timestamp    not null comment '开始时间',
     end_time         timestamp    not null comment '结束时间',
@@ -83,3 +84,15 @@ create table user_coin
     created_at timestamp   not null comment '创建时间',
     updated_at timestamp   not null comment '更新时间'
 ) comment '用户抽奖币';
+
+
+create table user
+(
+    id         int unsigned auto_increment comment '主键' primary key,
+    name       varchar(128) not null comment '姓名',
+    gender     char(1)      not null comment '性别',
+    type       char(2)      not null comment '类型',
+    ext        json         not null comment '扩展字段',
+    created_at timestamp    not null comment '创建时间',
+    updated_at timestamp    not null comment '更新时间'
+) comment '用户列表（临时使用，实际开发以用户中心为准）';

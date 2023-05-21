@@ -1,9 +1,14 @@
 package com.uas.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -11,11 +16,13 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author tallon
- * @since 2023-05-20
+ * @since 2023-05-21
  */
-public class Task implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Getter
+@Setter
+@Accessors(chain = true)
+@TableName("task")
+public class Task {
 
     /**
      * 主键
@@ -26,155 +33,60 @@ public class Task implements Serializable {
     /**
      * 任务编码
      */
+    @TableField("key_code")
     private String keyCode;
 
     /**
      * 活动编码
      */
+    @TableField("activity_key_code")
     private String activityKeyCode;
 
     /**
      * 奖励规则
      */
+    @TableField("reward_rule")
     private String rewardRule;
 
     /**
      * 匹配规则
      */
+    @TableField("match_rule")
     private String matchRule;
 
     /**
      * 处理规则
      */
+    @TableField("process_rule")
     private String processRule;
 
     /**
      * 状态
      */
+    @TableField("status")
     private String status;
 
     /**
      * 扩展字段
      */
+    @TableField("ext")
     private String ext;
 
     /**
      * 操作人
      */
+    @TableField("operator")
     private String operator;
 
     /**
      * 创建时间
      */
+    @TableField(value = "created_at", fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
     /**
      * 更新时间
      */
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getKeyCode() {
-        return keyCode;
-    }
-
-    public void setKeyCode(String keyCode) {
-        this.keyCode = keyCode;
-    }
-
-    public String getActivityKeyCode() {
-        return activityKeyCode;
-    }
-
-    public void setActivityKeyCode(String activityKeyCode) {
-        this.activityKeyCode = activityKeyCode;
-    }
-
-    public String getRewardRule() {
-        return rewardRule;
-    }
-
-    public void setRewardRule(String rewardRule) {
-        this.rewardRule = rewardRule;
-    }
-
-    public String getMatchRule() {
-        return matchRule;
-    }
-
-    public void setMatchRule(String matchRule) {
-        this.matchRule = matchRule;
-    }
-
-    public String getProcessRule() {
-        return processRule;
-    }
-
-    public void setProcessRule(String processRule) {
-        this.processRule = processRule;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getExt() {
-        return ext;
-    }
-
-    public void setExt(String ext) {
-        this.ext = ext;
-    }
-
-    public String getOperator() {
-        return operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "Task{" +
-        "id = " + id +
-        ", keyCode = " + keyCode +
-        ", activityKeyCode = " + activityKeyCode +
-        ", rewardRule = " + rewardRule +
-        ", matchRule = " + matchRule +
-        ", processRule = " + processRule +
-        ", status = " + status +
-        ", ext = " + ext +
-        ", operator = " + operator +
-        ", createdAt = " + createdAt +
-        ", updatedAt = " + updatedAt +
-        "}";
-    }
 }

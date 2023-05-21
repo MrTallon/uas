@@ -62,6 +62,15 @@
             <artifactId>HikariCP</artifactId>
         </dependency>
         <!--持久层 end-->
+
+        <!--工具库 start-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.16</version>
+        </dependency>
+        <!--工具库 end-->
+
 <!--        swagger start-->
 <!--        <dependency>-->
 <!--            <groupId>io.springfox</groupId>-->

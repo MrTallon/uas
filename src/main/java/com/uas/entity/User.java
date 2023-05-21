@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户行为
+ * 用户列表（临时使用，实际开发以用户中心为准）
  * </p>
  *
  * @author tallon
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@TableName("user_action")
-public class UserAction {
+@TableName("user")
+public class User {
 
     /**
      * 主键
@@ -31,28 +31,22 @@ public class UserAction {
     private Integer id;
 
     /**
-     * 用户行为源id，用于幂等控制
+     * 姓名
      */
-    @TableField("request_id")
-    private String requestId;
+    @TableField("name")
+    private String name;
 
     /**
-     * 对应的用户任务id
+     * 性别
      */
-    @TableField("user_task_id")
-    private Integer userTaskId;
+    @TableField("gender")
+    private String gender;
 
     /**
-     * 用户id
+     * 类型
      */
-    @TableField("user_id")
-    private String userId;
-
-    /**
-     * 事件类型
-     */
-    @TableField("action_code")
-    private String actionCode;
+    @TableField("type")
+    private String type;
 
     /**
      * 扩展字段
@@ -65,4 +59,10 @@ public class UserAction {
      */
     @TableField(value = "created_at", fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
+
+    /**
+     * 更新时间
+     */
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updatedAt;
 }

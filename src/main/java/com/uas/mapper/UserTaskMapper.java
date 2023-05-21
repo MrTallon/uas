@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author tallon
- * @since 2023-05-20
+ * @since 2023-05-21
  */
 public interface UserTaskMapper extends BaseMapper<UserTask> {
 

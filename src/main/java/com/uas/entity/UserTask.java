@@ -1,10 +1,14 @@
 package com.uas.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -12,12 +16,13 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author tallon
- * @since 2023-05-20
+ * @since 2023-05-21
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 @TableName("user_task")
-public class UserTask implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class UserTask {
 
     /**
      * 主键
@@ -28,141 +33,54 @@ public class UserTask implements Serializable {
     /**
      * 用户id
      */
+    @TableField("user_id")
     private String userId;
 
     /**
      * 任务编码
      */
+    @TableField("task_key_code")
     private String taskKeyCode;
 
     /**
      * 活动编码
      */
+    @TableField("activity_key_code")
     private String activityKeyCode;
 
     /**
      * 状态
      */
+    @TableField("status")
     private String status;
 
     /**
      * 扩展字段
      */
+    @TableField("ext")
     private String ext;
 
     /**
      * 用户任务开始时间
      */
+    @TableField("open_time")
     private LocalDateTime openTime;
 
     /**
      * 用户任务完成时间
      */
+    @TableField("complete_time")
     private LocalDateTime completeTime;
 
     /**
      * 创建时间
      */
+    @TableField(value = "created_at", fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
     /**
      * 更新时间
      */
+    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updatedAt;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getTaskKeyCode() {
-        return taskKeyCode;
-    }
-
-    public void setTaskKeyCode(String taskKeyCode) {
-        this.taskKeyCode = taskKeyCode;
-    }
-
-    public String getActivityKeyCode() {
-        return activityKeyCode;
-    }
-
-    public void setActivityKeyCode(String activityKeyCode) {
-        this.activityKeyCode = activityKeyCode;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getExt() {
-        return ext;
-    }
-
-    public void setExt(String ext) {
-        this.ext = ext;
-    }
-
-    public LocalDateTime getOpenTime() {
-        return openTime;
-    }
-
-    public void setOpenTime(LocalDateTime openTime) {
-        this.openTime = openTime;
-    }
-
-    public LocalDateTime getCompleteTime() {
-        return completeTime;
-    }
-
-    public void setCompleteTime(LocalDateTime completeTime) {
-        this.completeTime = completeTime;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "UserTask{" +
-        "id = " + id +
-        ", userId = " + userId +
-        ", taskKeyCode = " + taskKeyCode +
-        ", activityKeyCode = " + activityKeyCode +
-        ", status = " + status +
-        ", ext = " + ext +
-        ", openTime = " + openTime +
-        ", completeTime = " + completeTime +
-        ", createdAt = " + createdAt +
-        ", updatedAt = " + updatedAt +
-        "}";
-    }
 }

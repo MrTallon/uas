@@ -1,8 +1,10 @@
 package com.uas.util;
 
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.fill.Column;
 
 import java.util.Collections;
 
@@ -25,17 +27,22 @@ public class FastAutoGenerator {
      * 策略配置
      */
     private static final StrategyConfig strategyConfig = new StrategyConfig.Builder()
-//            .addInclude("activity")
+            .entityBuilder()
+            .disableSerialVersionUID()
+            .enableChainModel()
+            .enableLombok()
+            .enableRemoveIsPrefix()
+            .enableTableFieldAnnotation()
+            .addTableFills(new Column("created_at", FieldFill.INSERT))
+            .addTableFills(new Column("updated_at", FieldFill.INSERT_UPDATE))
             .build();
-
     /**
      * 全局配置
      */
     private static final GlobalConfig globalConfig = new GlobalConfig.Builder()
             .author("tallon")
-//            .enableSwagger()
             .fileOverride()
-//            .disableOpenDir()
+            .disableOpenDir()
             .outputDir(CODE_PATH)
             .build();
 
@@ -45,7 +52,7 @@ public class FastAutoGenerator {
     private static final PackageConfig packageConfig = new PackageConfig.Builder()
             .parent("com")
             .moduleName("uas")
-            .pathInfo(Collections.singletonMap(OutputFile.xml, CODE_PATH))
+            .pathInfo(Collections.singletonMap(OutputFile.xml, System.getProperty("user.dir") + "\\src\\main\\resource\\mapper"))
             .build();
 
     /**
