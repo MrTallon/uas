@@ -37,9 +37,9 @@ public class ActivityController {
      * 添加、修改 活动
      */
     @PutMapping("/upsert")
-    private String participantsInActivity(@RequestBody UpsertReq req) {
-
-        return "";
+    private Boolean participantsInActivity(@RequestBody Activity activity) {
+        // check params
+        return activityService.saveOrUpdate(activity);
     }
 
 
@@ -60,14 +60,6 @@ public class ActivityController {
 
         var count = userTaskService.count(Wrappers.<UserTask>lambdaQuery().eq(UserTask::getActivityKeyCode, req.getActivityKeyCode()));
         return "321";
-    }
-
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    static class UpsertReq {
-        private String activityName;
     }
 
     @Data

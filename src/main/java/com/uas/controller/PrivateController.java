@@ -12,15 +12,15 @@ import java.util.Map;
 
 /**
  * <p>
- * 用户列表（临时使用，实际开发以用户中心为准） 前端控制器
+ * 测试方法
  * </p>
  *
  * @author tallon
  * @since 2023-05-21
  */
 @RestController
-@RequestMapping("/user/test")
-public class UserController {
+@RequestMapping("/private")
+public class PrivateController {
 
     @Autowired
     private StreamRedisQueue streamRedisQueue;

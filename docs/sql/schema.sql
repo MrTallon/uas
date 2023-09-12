@@ -1,3 +1,6 @@
+create schema uas;
+
+
 create table activity
 (
     id               int unsigned auto_increment comment '主键' primary key,

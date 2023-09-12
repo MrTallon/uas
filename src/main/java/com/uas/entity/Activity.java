@@ -1,6 +1,8 @@
 package com.uas.entity;
 
+import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -60,8 +62,8 @@ public class Activity {
     /**
      * 判断是否能够参加活动的处理器参数
      */
-    @TableField("processor_params")
-    private String processorParams;
+    @TableField(value = "processor_params", typeHandler = JacksonTypeHandler.class)
+    private JSONObject processorParams;
 
     /**
      * 状态
@@ -72,8 +74,8 @@ public class Activity {
     /**
      * 扩展字段
      */
-    @TableField("ext")
-    private String ext;
+    @TableField(value = "ext", typeHandler = JacksonTypeHandler.class)
+    private JSONObject ext;
 
     /**
      * 操作人
